@@ -1,0 +1,34 @@
+{
+  "name": "ste_website",
+  "version": "1.0.0",
+  "description": "Core web application code for Sigma Theta Epsilon national website.",
+  "main": "index.js",
+  "scripts": {
+    "clean": "gulp clean",
+    "build-create-folders": "gulp build-create-folders",
+    "build-copy-app": "gulp build-copy-app",
+    "build-copy-web": "gulp build-copy-web",
+    "build-sass": "gulp build-sass",
+    "build-all": "gulp build-all"
+  },
+  "devDependencies": {
+    "del": "~3.0.0",
+    "gulp": "~3.9.1",
+    "gulp-clean": "~0.4.0",
+    "gulp-cli": "~2.0.1",
+    "gulp-sass": "~4.0.1",
+    "gulp-sourcemaps": "~2.6.4",
+    "node-sass": "~4.9.3"
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SigmaThetaEpsilon/website.git"
+  },
+  "author": "Matt Zirkle",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/SigmaThetaEpsilon/website/issues"
+  },
+  "homepage": "https://github.com/SigmaThetaEpsilon/website#readme"
+}
