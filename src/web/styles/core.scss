@@ -1,7 +1,184 @@
-////////
-// Colors
-////////
+/*****************************
+ * Colors
+ *****************************/
+// Specific element colors
+$backgroundColor: #f9e5ff;
+$labelColor: #666666;
+
 // Official colors of Sigma Theta Epsilon.
 $purple: #50065A;
 $gold: #DFA800;
-$white: #FFFFFF;
+
+html {
+    background-color: $backgroundColor;
+}
+
+.accentColor {
+    color: $gold;
+}
+
+label {
+    color: $labelColor;
+}
+
+.card-header {
+    color: $purple;
+}
+
+a {
+    color: black;
+}
+
+/*****************************
+ * Image container styles
+ *****************************/
+.media-container {
+    text-align: center;
+
+    .image-container {
+        overflow: hidden;
+        max-height: 500px;
+        margin-left: auto;
+        margin-right: auto;
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    }
+}
+
+/*****************************
+ * Header styles
+ *****************************/
+$header-break: 840px;
+
+header {
+    background-color: $purple;
+    color: white;
+    padding-bottom: 4px;
+
+    a {
+        color: white;
+        text-decoration: none;
+
+        &:focus, &:hover {
+            text-decoration: underline;
+        }
+
+        img {
+            height: 125px;
+            margin: 4px;
+            vertical-align: middle;
+        }
+    }
+
+    #subHeader {
+        display: inline-block;
+        margin-left: 10px;
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: ($header-break - 1px)) {
+    header {
+        text-align: center;
+        padding-bottom: 8px;
+
+        a img {
+            display: none;
+        }
+
+        #subHeader {
+            display: block;
+            margin: 0;
+        }
+    }
+}
+
+/*****************************
+ * Nav-bar styles
+ *****************************/
+nav {
+    background-color: $purple;
+
+    a {
+        color: #AAAAAA;
+        display: inline-block;
+        padding: 0 16px;
+        border-bottom: 2px solid $purple;
+        min-height: 48px;
+        text-decoration: none;
+
+        &.currentPage {
+            border-bottom-color: white;
+            color: white;
+        }
+
+        &:hover {
+            color: white;   
+        }
+    }
+}
+
+/*****************************
+ * Sticky footer styles
+ * https://css-tricks.com/couple-takes-sticky-footer/
+ *****************************/
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    flex: 1 0 auto;
+}
+
+footer {
+    flex-shrink: 0;
+    text-align: center;
+    background-color: $purple;
+    color: white;
+
+    a {
+        color: white;
+
+        &.socialMediaLink {
+            text-decoration: none;
+        }
+    }
+}
+
+/************************
+ * Column styles (without CSS Grid)
+ ************************/
+.columns-2 {
+    display: inline-block;
+    width: 48%;
+    vertical-align: top;
+}
+
+.columns-3 {
+    display: inline-block;
+    width: 31%;
+    vertical-align: top;
+}
+
+/************************
+ * Fields
+ ************************/
+.field {
+    margin-bottom: 10px;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    .value-readonly {
+        margin: 0;
+    }
+}

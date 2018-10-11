@@ -1,0 +1,51 @@
+/******************************
+ * Typography
+ ******************************/
+ $font-stack: "Segoe UI", Helvetica, Arial, sans-serif;
+
+ html {
+     font-size: 16px;
+     font-family: $font-stack; 
+ }
+ 
+ body {
+     line-height: 1.5;
+ }
+ 
+ h1 {
+     font-size: 6rem;
+ }
+ 
+ h2 {
+     font-size: 3.75rem;
+ }
+ 
+ h3 {
+     font-size: 3rem;
+ }
+ 
+ h4 {
+     font-size: 2.125rem;
+ }
+ 
+ h5 {
+     font-size: 1.5rem;
+ }
+ 
+ h6 {
+     font-size: 1.25rem;
+ }
+ 
+ p, a, label, blockquote {
+     font-size: 1.5rem;
+ }
+ 
+ .caption, .caption a {
+     font-size: 1rem;
+ }
+ 
+ @media (max-width: 719px) {
+     p, a, label, blockquote {
+         font-size: 1.25rem;
+     }
+ }

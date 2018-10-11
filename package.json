@@ -8,6 +8,7 @@
     "build-create-folders": "gulp build-create-folders",
     "build-copy-app": "gulp build-copy-app",
     "build-copy-web": "gulp build-copy-web",
+    "build-copy-images": "gulp build-copy-images",
     "build-sass": "gulp build-sass",
     "build-all": "gulp build-all"
   },
