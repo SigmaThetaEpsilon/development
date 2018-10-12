@@ -507,6 +507,36 @@ label {
 a {
   color: black; }
 
+/************************
+ * Helper styles
+ ************************/
+.inline-block {
+  display: inline-block; }
+
+.top-align {
+  vertical-align: top; }
+
+.no-margin {
+  margin: 0; }
+
+.left-margin {
+  margin-left: 10px; }
+
+.right-margin {
+  margin-right: 10px; }
+
+.color-accent-primary {
+  color: #50065A; }
+
+.color-accent-secondary {
+  color: #DFA800; }
+
+.background-color-accent-primary {
+  background-color: #50065A; }
+
+.background-color-accent-secondary {
+  background-color: #DFA800; }
+
 /*****************************
  * Image container styles
  *****************************/
@@ -595,17 +625,19 @@ footer {
       text-decoration: none; }
 
 /************************
- * Column styles (without CSS Grid)
+ * Google Maps
  ************************/
-.columns-2 {
-  display: inline-block;
-  width: 48%;
-  vertical-align: top; }
+.google-maps .maps-link {
+  display: none; }
 
-.columns-3 {
-  display: inline-block;
-  width: 31%;
-  vertical-align: top; }
+.google-maps .maps-embedded {
+  display: block; }
+
+@media (max-width: 1000px) {
+  .google-maps .maps-link {
+    display: block; }
+  .google-maps .maps-embedded {
+    display: none; } }
 
 /************************
  * Fields
