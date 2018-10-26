@@ -648,3 +648,6 @@ footer {
     margin-bottom: 0; }
   .field .value-readonly {
     margin: 0; }
+
+#storeCountdownContainer {
+  text-align: center; }
