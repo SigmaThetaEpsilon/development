@@ -5,6 +5,20 @@
  */
 class Layout {
     /**
+     * Renders the given 
+     * @param $viewRoute - View relative path to web home
+     */
+    public static function renderView($viewRoute) {
+        try {
+
+        }
+        catch (Exception $e) {
+            http_response_code(500);
+            // TODO - log error somehow
+        }
+    }
+
+    /**
      * Renders some HTML with a consistent look and feel using a layout template. 
      * @param $pageTitle - prefix to put in a <title> element
      * @param $pageUri - identifier for the page you are rendering to control the active link in the navbar.
