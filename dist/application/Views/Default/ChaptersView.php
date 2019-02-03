@@ -1,9 +1,22 @@
 <?php
 
-define('APP_PATH', '../application/');
-require(APP_PATH . 'layout.php');
+declare(strict_types = 1);
 
-$pageHtml = <<<HTML
+require_once(__DIR__ . "/../IView.php");
+
+class ChaptersView implements IView {
+    /**
+     * Prefix to put in a <title> element
+     */
+    public function getTitle(): string {
+        return 'Chapters';
+    }
+
+    /**
+     * main HTML content
+     */
+    public function getMainContent(): string {
+        $html = <<<HTML
 <section class="card cell--span-6">
     <h3 class="card-header">Alpha Ohio</h3>
     <div class="inline-block top-align right-margin">
@@ -72,6 +85,8 @@ $pageHtml = <<<HTML
 </section>
 HTML;
 
-Layout::renderHTML('Chapters', '/chapters.php', $pageHtml);
+        return $html;
+    }
+}
 
 ?>

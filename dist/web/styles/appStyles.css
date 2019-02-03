@@ -340,14 +340,14 @@ h5 {
 h6 {
   font-size: 1.25rem; }
 
-p, a, label, blockquote {
+p, a, li, label, blockquote {
   font-size: 1.5rem; }
 
 .caption, .caption a {
   font-size: 1rem; }
 
 @media (max-width: 719px) {
-  p, a, label, blockquote {
+  p, a, li, label, blockquote {
     font-size: 1.25rem; } }
 
 /************************
@@ -536,6 +536,15 @@ a {
 
 .background-color-accent-secondary {
   background-color: #DFA800; }
+
+.text-left {
+  text-align: left; }
+
+.text-right {
+  text-align: right; }
+
+.text-center {
+  text-align: center; }
 
 /*****************************
  * Image container styles

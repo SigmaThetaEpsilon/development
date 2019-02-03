@@ -15,8 +15,6 @@
 #           > Example: If request was "/members?chapter=123", the route turns into "index.php?chapter=123").
 #       ~ L designates this as the last rule to check against.
 #====================================
-<IfModule mode_rewrite.c>
-    RewriteEngine On
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteRule ^(.*) index.php [QSA,L]
-</IfModule>
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.*)$ index.php [QSA,L]

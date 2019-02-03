@@ -1,41 +1,29 @@
 <?php
 
+declare(strict_types = 1);
+
 /**
  * Helper class in charge of rendering a consistent layout for a web application
  */
-class Layout {
-    /**
-     * Renders the given 
-     * @param $viewRoute - View relative path to web home
-     */
-    public static function renderView($viewRoute) {
-        try {
-
-        }
-        catch (Exception $e) {
-            http_response_code(500);
-            // TODO - log error somehow
-        }
-    }
-
+class ViewLayout {
     /**
      * Renders some HTML with a consistent look and feel using a layout template. 
      * @param $pageTitle - prefix to put in a <title> element
      * @param $pageUri - identifier for the page you are rendering to control the active link in the navbar.
      * @param $mainContent - main HTML content
      */
-    public static function renderHTML($pageTitle, $pageUri, $mainContent) {
+    public static function RenderHTML($pageTitle, $pageUri, $mainContent) {
         try {
             // TODO - more robust validation will be necessary
             if (strlen($pageTitle) == 0) { throw new InvalidArgumentException('Page title is invalid.'); }
             if (strlen($mainContent) == 0) { throw new InvalidArgumentException('Main content is invalid.'); }
 
-            $navbarContents = Layout::buildNavbar($pageUri);
+            $navbarContents = ViewLayout::buildNavbar($pageUri);
 
-            $html = Layout::layoutHTML();
-            $html = str_replace(Layout::$tokenTitle, $pageTitle, $html);
-            $html = str_replace(Layout::$tokenMainContent, $mainContent, $html);
-            $html = str_replace(Layout::$tokenNavbar, $navbarContents, $html);
+            $html = ViewLayout::layoutHTML();
+            $html = str_replace(ViewLayout::$tokenTitle, $pageTitle, $html);
+            $html = str_replace(ViewLayout::$tokenMainContent, $mainContent, $html);
+            $html = str_replace(ViewLayout::$tokenNavbar, $navbarContents, $html);
 
             echo $html;
         }
@@ -50,12 +38,12 @@ class Layout {
      * @param $pageUri - identifier for the page you are rendering to control the active link in the navbar.
      * @return string HTML string
      */
-    private static function buildNavbar($pageUri) {
+    private static function buildNavbar($pageUri): string {
         $navbarLinks = [
             '/' => 'Home',
-            '/chapters.php' => 'Chapters',
-            '/store.php' => 'Store',
-            '/philoi.php' => 'The Philoi'
+            '/chapters' => 'Chapters',
+            '/store' => 'Store',
+            '/philoi' => 'The Philoi'
         ];
 
         $navbarHtml = '';
@@ -93,10 +81,10 @@ class Layout {
      * The string has to start and end without any tabbing, otherwise it won't work.
      * @return string HTML layout
      */
-    private static function layoutHTML() {
-        $title = Layout::$tokenTitle;
-        $navbar = Layout::$tokenNavbar;
-        $mainContent = Layout::$tokenMainContent;
+    private static function layoutHTML(): string {
+        $title = ViewLayout::$tokenTitle;
+        $navbar = ViewLayout::$tokenNavbar;
+        $mainContent = ViewLayout::$tokenMainContent;
 
         return <<<HTML
 <html>
