@@ -30,7 +30,7 @@ class App {
                 // TODO - give to controller to process request.
                 $controller->Initialize($appRoot);
                 if (!$controller->TryProcessRequest($requestUri, $requestMethod)) {
-                    echo 'Something went wrong, we did not process request';
+                    App::handleFailedRequest($appRoot);
                 }
             }
         }
@@ -64,17 +64,26 @@ class App {
 
     private static function handleNoControllerFound($appRoot) {
         // TODO - log that this happened
-        $controller = new DefaultController();
-        $controller->Initialize($appRoot);
-        $controller->TryProcessRequest('/', HttpMethods::GET);
+        App::redirectHomePage($appRoot);
+    }
+
+    private static function handleFailedRequest($appRoot) {
+        // TODO - log that this happened
+        App::redirectHomePage($appRoot);
     }
 
     private static function handleUnexpectedError($appRoot, $e) {
         // TODO - log that this happened
-        $controller = new DefaultController($appRoot);
-        $controller->Initialize($appRoot);
-        $controller->TryProcessRequest('/', HttpMethods::GET);
-        // TODO - error page or home page?
+        App::redirectHomePage($appRoot); // TODO - 500 error page
+    }
+
+    /**
+     * Performs an HTTP 303 redirect to the home page.
+     * 
+     */
+    private static function redirectHomePage() {
+        $homePage = 'https://www.sigmathetaepsilon.org';
+        header('Location: ' . $homePage, true, 303);
     }
 }
 

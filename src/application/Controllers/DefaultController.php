@@ -45,8 +45,7 @@ class DefaultController implements IController {
             return $this->tryProcessGetRequest($requestUri);
         }
         else {
-            echo 'Method did not match?<br>';
-            return false;
+            return false; // TODO - Failure reason error code.
         }
     }
 
