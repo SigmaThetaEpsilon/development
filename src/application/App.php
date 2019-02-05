@@ -21,7 +21,8 @@ class App {
         require_once($controllerPath . 'ChaptersController.php');
 
         try {
-            $uriPieces = explode('/', $requestUri);
+            $uriToProcess = parse_url($requestUri, PHP_URL_PATH);
+            $uriPieces = explode('/', $uriToProcess);
             $controller = App::getControllerForUri($uriPieces);
             if ($controller == null) {
                 App::handleNoControllerFound($appRoot);
@@ -29,7 +30,7 @@ class App {
             else {
                 // TODO - give to controller to process request.
                 $controller->Initialize($appRoot);
-                if (!$controller->TryProcessRequest($requestUri, $requestMethod)) {
+                if (!$controller->TryProcessRequest($uriToProcess, $requestMethod)) {
                     App::handleFailedRequest($appRoot);
                 }
             }
