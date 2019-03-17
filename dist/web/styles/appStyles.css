@@ -302,15 +302,45 @@ template {
  * Based on Google's Material Design Components Web (https://github.com/material-components/material-components-web).
  * Those styles are quite robost and more than needed here, hence we aren't using the components themselves.
  *****************************/
+/* Shared */
 /* Card (https://material.io/develop/web/components/cards/) */
 .card {
-  border-radius: 2px;
+  border-radius: 4px;
   box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
   margin: 8px 0;
   padding: 10px;
   background-color: white; }
   .card .card-header {
     margin: 0; }
+
+/* Buttons (https://material.io/develop/web/components/buttons/) */
+button, [type='button'], [type='reset'], [type='submit'] {
+  border: 0;
+  padding-left: 16px;
+  padding-right: 16px;
+  height: 36px;
+  border-radius: 4px; }
+  button.text, [type='button'].text, [type='reset'].text, [type='submit'].text {
+    color: #50065A;
+    fill: #50065A; }
+  button.raised, [type='button'].raised, [type='reset'].raised, [type='submit'].raised {
+    color: white;
+    fill: white;
+    background-color: #50065A;
+    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
+  button.unelevated, [type='button'].unelevated, [type='reset'].unelevated, [type='submit'].unelevated {
+    color: white;
+    fill: white;
+    background-color: #50065A; }
+  button.outlined, [type='button'].outlined, [type='reset'].outlined, [type='submit'].outlined {
+    color: #50065A;
+    fill: #50065A;
+    border: 2px solid #50065A;
+    background-color: white; }
+  button.shaped, [type='button'].shaped, [type='reset'].shaped, [type='submit'].shaped {
+    color: white;
+    fill: white;
+    background-color: #50065A; }
 
 /******************************
  * Typography
@@ -655,8 +685,20 @@ footer {
   margin-bottom: 10px; }
   .field:last-child {
     margin-bottom: 0; }
+  .field label {
+    display: block; }
+  .field input {
+    width: 300px; }
+    .field input.full-width {
+      display: block;
+      width: 100%; }
   .field .value-readonly {
     margin: 0; }
+
+@media (max-width: 1000px) {
+  input {
+    display: block;
+    width: 100%; } }
 
 #storeCountdownContainer {
   text-align: center; }

@@ -43,7 +43,7 @@ class DefaultController implements IController {
      * @param requestMethod - Value from $_SERVER['REQUEST_METHOD']
      * @return bool
      */
-    public function TryProcessRequest($requestUri, $requestMethod): bool {
+    public function TryProcessRequest($requestUri, $requestMethod, $postValues, $getValues): bool {
         if (strcasecmp($requestMethod, HttpMethods::GET) == 0) {
             return $this->tryProcessGetRequest($requestUri);
         }

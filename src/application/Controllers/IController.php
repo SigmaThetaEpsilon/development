@@ -10,6 +10,23 @@ class HttpMethods {
     const POST = 'POST';
     const PUT = 'PUT';
     const DELETE = 'DELETE';
+
+    public static function IsGet($method): bool {
+        return HttpMethods::DoesMethodMatch($method, HttpMethods::GET);
+    }
+
+    public static function IsPost($method): bool {
+        return HttpMethods::DoesMethodMatch($method, HttpMethods::POST);
+    }
+
+    private static function DoesMethodMatch($toCheck, $matchAgainst): bool {
+        if ((strlen($toCheck) > 0) && (strlen($matchAgainst) > 0)) {
+            return strcasecmp($toCheck, $matchAgainst) == 0;
+        }
+        else {
+            return false;
+        }
+    }
 }
 
 /**
@@ -33,9 +50,11 @@ interface IController {
      * Attempt to processes the given request
      * @param requestUri - Value from $_SERVER['REQUEST_URI']
      * @param requestMethod - Value from $_SERVER['REQUEST_METHOD']
+     * @param postValues - Value from $_POST (i.e. form input elements)
+     * @param getValues - Value from $_GET (i.e. query string elements)
      * @return bool
      */
-    public function TryProcessRequest($requestUri, $requestMethod): bool;
+    public function TryProcessRequest($requestUri, $requestMethod, $postValues, $getValues): bool;
 }
 
 ?>

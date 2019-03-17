@@ -22,16 +22,19 @@ class DefaultController implements IController {
     }
 
     /**
-     * Dependency-injected base path of the application
-     */
-    private $applicationRoot = '';
-
-    /**
      * Initializes the controller with the document root for the application.
      * @param appRoot - Base path of the application
      */
     public function Initialize($appRoot) {
-        $this->applicationRoot = $appRoot;
+        $viewsPath = $appRoot . 'Views/';
+        require_once($viewsPath . 'IView.php');
+        require_once($viewsPath . 'ViewLayout.php');
+        
+        $routesPath = $viewsPath . 'Default/';
+        require_once($routesPath . 'IndexView.php');
+        require_once($routesPath . 'PhiloiView.php');
+        require_once($routesPath . 'StoreView.php');
+        require_once($routesPath . 'ChaptersView.php'); // TODO - Transition this view from here to ChaptersController, where it will live in the future.
     }
 
     /**
@@ -40,7 +43,7 @@ class DefaultController implements IController {
      * @param requestMethod - Value from $_SERVER['REQUEST_METHOD']
      * @return bool
      */
-    public function TryProcessRequest($requestUri, $requestMethod): bool {
+    public function TryProcessRequest($requestUri, $requestMethod, $postValues, $getValues): bool {
         if (strcasecmp($requestMethod, HttpMethods::GET) == 0) {
             return $this->tryProcessGetRequest($requestUri);
         }
@@ -55,16 +58,6 @@ class DefaultController implements IController {
      * @return bool
      */
     private function tryProcessGetRequest($requestUri): bool {
-        $viewsPath = $this->applicationRoot . 'Views/';
-        require_once($viewsPath . 'IView.php');
-        require_once($viewsPath . 'ViewLayout.php');
-        
-        $routesPath = $viewsPath . 'Default/';
-        require_once($routesPath . 'IndexView.php');
-        require_once($routesPath . 'PhiloiView.php');
-        require_once($routesPath . 'StoreView.php');
-        require_once($routesPath . 'ChaptersView.php'); // TODO - Transition this view from here to ChaptersController, where it will live in the future.
-
         $uriPieces = explode('/', $requestUri);
         if (count($uriPieces) > 1) {
             $route = $uriPieces[1];

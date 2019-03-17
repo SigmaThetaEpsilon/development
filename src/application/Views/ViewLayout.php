@@ -87,6 +87,7 @@ class ViewLayout {
         $mainContent = ViewLayout::$tokenMainContent;
 
         return <<<HTML
+<!DOCTYPE html>
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -95,13 +96,13 @@ class ViewLayout {
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 
-    <link rel="stylesheet" type="text/css" href="styles/appStyles.css" />
+    <link rel="stylesheet" type="text/css" href="/styles/appStyles.css" />
 </head>
 <body>
     <div class="content">
         <header>
             <a href="/" title="Return to home page">
-                <img src="images/logo.png" alt="Sigma Theta Epsilon Logo" />
+                <img src="/images/logo.png" alt="Sigma Theta Epsilon Logo" />
                 <span>Sigma Theta Epsilon</span>
             </a>
             <p id="subHeader">National Christian Fraternity</p>
@@ -126,13 +127,13 @@ class ViewLayout {
         <p>&copy; Copyright 2018 <a href="/" title="Return to home page">Sigma Theta Epsilon</a>. All rights reserved.</p>
         <div>
             <a href="https://www.facebook.com/SigmaThetaEpsilon/" target="_blank" title="National Fraternity Facebook Page" class="socialMediaLink">
-                <img src="images/social/Facebook_White.png" alt="Facebook logo" />
+                <img src="/images/social/Facebook_White.png" alt="Facebook logo" />
             </a>
             <a href="https://twitter.com/SigmaTheta" target="_blank" title="National Fraternity Twitter Account" class="socialMediaLink">
-                <img src="images/social/Twitter_White.png" alt="Twitter logo" />
+                <img src="/images/social/Twitter_White.png" alt="Twitter logo" />
             </a>
             <a href="https://www.linkedin.com/groups/1888663/" target="_blank" title="National Fraternity LinkedIn Group" class="socialMediaLink">
-                <img src="images/social/LinkedIn_White.png" alt="LinkedIn logo" />
+                <img src="/images/social/LinkedIn_White.png" alt="LinkedIn logo" />
             </a>
         </div>
     </footer>

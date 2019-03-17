@@ -1,4 +1,4 @@
-let gulp = require('gulp');
+const {src, dest, series} = require('gulp');
 let gulpSass = require('gulp-sass');
 //let gulpSourcemaps = require('gulp-sourcemaps');
 
@@ -20,72 +20,74 @@ const pathDistWebImages = path.resolve(pathDistWeb, 'images');
 const pathDistWebScripts = path.resolve(pathDistWeb, 'scripts');
 const pathDistWebStyles = path.resolve(pathDistWeb, 'styles');
 
-gulp.task('clean', () => {
+function clean(cb) {
     console.log('[gulp::clean] Cleaning output folder.', pathDist);
-    return del(pathDist);
-});
+    del.sync(pathDist);
 
-gulp.task('build-create-folders', () => {
+    cb();
+}
+
+function createFolders(cb) {
     console.log('[gulp::build-create-folders] Creating build folders.');
 
     const folders = [pathDist, pathDistApp, pathDistWeb, pathDistWebImages, pathDistWebScripts, pathDistWebStyles];
-    let doAnyFoldersNotExist = false;
     for (let i = 0; i < folders.length; i++) {
         const folder = folders[i];
         if (!fs.existsSync(folder)) { 
             fs.mkdirSync(folder); 
-            if (!fs.existsSync(folder)) { doAnyFoldersNotExist = true; }
+            if (!fs.existsSync(folder)) { 
+                console.error('Could not create folder.', folder);
+            }
         }
     }
 
-    if (doAnyFoldersNotExist) {
-        console.error('Some configured path could not be verified as created.');
-        return false;
-    }
-});
+    cb();
+}
 
-gulp.task('build-copy-app', ['build-create-folders'], () => {
+function copyAppFolder(cb) {
     console.log('[gulp::build-copy-app] Copying PHP app files in src/application to dist/application.');
 
-    const srcFiles = path.resolve(pathSrcApp, '**/*.php');
+    src(
+        path.resolve(pathSrcApp, '**/*.php'
+    )).pipe(dest(pathDistApp));
 
-    return gulp.src(srcFiles)
-        .pipe(gulp.dest(pathDistApp));
-});
+    cb();
+}
 
-gulp.task('build-copy-web', ['build-create-folders'], () => {
+function copyWebFolder(cb) {
     console.log('[gulp::build-copy-web] Copying PHP app files in src/web to dist/web.');
 
-    const srcFiles = [
+    src([
         path.resolve(pathSrcWeb, '*.php'),
-        path.resolve(pathSrcWeb, '.htaccess')
-    ];
+        path.resolve(pathSrcWeb, '.htaccess'),
+        path.resolve(pathSrcWeb, 'web.config')
+    ]).pipe(dest(pathDistWeb));
 
-    return gulp.src(srcFiles)
-        .pipe(gulp.dest(pathDistWeb));
-});
+    cb();
+}
 
-gulp.task('build-copy-images', ['build-create-folders'], () => {
+function copyWebImages(cb) {
     console.log('[gulp::build-copy-images] Copying image files in src/web/images to dist/web/images.');
 
-    const srcFiles = path.resolve(pathSrcWebImages, '**/*');
+    src(
+        path.resolve(pathSrcWebImages, '**/*')
+    ).pipe(dest(pathDistWebImages));
 
-    return gulp.src(srcFiles)
-        .pipe(gulp.dest(pathDistWebImages));
-    
-});
+    cb();
+}
 
-gulp.task('build-sass', ['build-create-folders'], () => {
+function buildStylesheets(cb) {
     console.log('[gulp::build-sass] Transpiling SASS to CSS and generating output.');
 
-    const srcFiles = path.resolve(pathSrcWebStyles, 'appStyles.scss');
+    src(
+        path.resolve(pathSrcWebStyles, 'appStyles.scss')
+    ).pipe(gulpSass().on('error', gulpSass.logError))
+    .pipe(dest(pathDistWebStyles));
 
-    return gulp.src(srcFiles)
-        .pipe(gulpSass().on('error', gulpSass.logError))
-        .pipe(gulp.dest(pathDistWebStyles));
-});
+    cb();
+}
 
-gulp.task('build-all', ['build-create-folders', 'build-copy-app', 'build-copy-images', 'build-copy-web', 'build-sass'], () => {
-    console.log('[gulp::build-all] Parent clean then run all build tasks.');
-    // TODO - add deploy capabilities to copy to some other directory.
-});
+exports.clean = clean;
+exports.build = series(createFolders, copyAppFolder, copyWebFolder, copyWebImages, buildStylesheets);
+exports.cleanBuild = series(clean, createFolders, copyAppFolder, copyWebFolder, copyWebImages, buildStylesheets);
+// TODO - deploy with config somehow

@@ -5,21 +5,16 @@
   "main": "index.js",
   "scripts": {
     "clean": "gulp clean",
-    "build-create-folders": "gulp build-create-folders",
-    "build-copy-app": "gulp build-copy-app",
-    "build-copy-web": "gulp build-copy-web",
-    "build-copy-images": "gulp build-copy-images",
-    "build-sass": "gulp build-sass",
-    "build-all": "gulp build-all"
+    "build": "gulp build",
+    "cleanBuild": "gulp cleanBuild"
   },
   "devDependencies": {
-    "del": "~3.0.0",
-    "gulp": "~3.9.1",
-    "gulp-clean": "~0.4.0",
+    "del": "~4.0.0",
+    "gulp": "^4.0.0",
     "gulp-cli": "~2.0.1",
-    "gulp-sass": "~4.0.1",
-    "gulp-sourcemaps": "~2.6.4",
-    "node-sass": "~4.9.3"
+    "gulp-sass": "~4.0.2",
+    "gulp-sourcemaps": "~2.6.5",
+    "node-sass": "~4.11.0"
   },
   "dependencies": {},
   "repository": {

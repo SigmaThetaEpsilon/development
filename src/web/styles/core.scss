@@ -241,7 +241,27 @@ footer {
         margin-bottom: 0;
     }
 
+    label {
+        display: block;
+    }
+
+    input {
+        width: 300px;
+
+        &.full-width {
+            display: block;
+            width: 100%;
+        }
+    }
+
     .value-readonly {
         margin: 0;
+    }
+}
+
+@media (max-width: 1000px) {
+    input {
+        display: block;
+        width: 100%;
     }
 }

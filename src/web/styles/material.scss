@@ -4,10 +4,19 @@
  * Those styles are quite robost and more than needed here, hence we aren't using the components themselves.
  *****************************/
 
+/* Shared */
+@mixin box-shadow {
+    box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+}
+
+@mixin round-corners {
+    border-radius: 4px;
+}
+
 /* Card (https://material.io/develop/web/components/cards/) */
 @mixin card-box {
-    border-radius: 2px;
-    box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+    @include round-corners();
+    @include box-shadow();
 }
 
 .card {
@@ -18,5 +27,49 @@
 
     .card-header {
         margin: 0;
+    }
+}
+
+/* Buttons (https://material.io/develop/web/components/buttons/) */
+$purple: #50065A;
+
+@mixin button-text-color($color) {
+    color: $color;
+    fill: $color;
+}
+
+button, [type='button'], [type='reset'], [type='submit'] {
+    border: 0;
+    padding-left: 16px;
+    padding-right: 16px;
+    height: 36px;
+    @include round-corners();
+
+    // TODO - hover, pressed states
+
+    &.text {
+        @include button-text-color($purple);
+    }
+
+    &.raised {
+        @include button-text-color(white);
+        background-color: $purple;
+        @include box-shadow();
+    }
+
+    &.unelevated {
+        @include button-text-color(white);
+        background-color: $purple;
+    }
+
+    &.outlined {
+        @include button-text-color($purple);
+        border: 2px solid $purple;
+        background-color: white;
+    }
+
+    &.shaped {
+        @include button-text-color(white);
+        background-color: $purple;
     }
 }
