@@ -297,13 +297,34 @@ template {
 [hidden] {
   display: none; }
 
-/*****************************
- * Material Design Styles
- * Based on Google's Material Design Components Web (https://github.com/material-components/material-components-web).
- * Those styles are quite robost and more than needed here, hence we aren't using the components themselves.
- *****************************/
-/* Shared */
-/* Card (https://material.io/develop/web/components/cards/) */
+button, input[type='button'], input[type='reset'], input[type='submit'] {
+  border: 0;
+  padding-left: 16px;
+  padding-right: 16px;
+  height: 36px;
+  border-radius: 4px; }
+  button.text, input[type='button'].text, input[type='reset'].text, input[type='submit'].text {
+    color: #50065A;
+    fill: #50065A; }
+  button.raised, input[type='button'].raised, input[type='reset'].raised, input[type='submit'].raised {
+    color: white;
+    fill: white;
+    background-color: #50065A;
+    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
+  button.unelevated, input[type='button'].unelevated, input[type='reset'].unelevated, input[type='submit'].unelevated {
+    color: white;
+    fill: white;
+    background-color: #50065A; }
+  button.outlined, input[type='button'].outlined, input[type='reset'].outlined, input[type='submit'].outlined {
+    color: #50065A;
+    fill: #50065A;
+    border: 2px solid #50065A;
+    background-color: white; }
+  button.shaped, input[type='button'].shaped, input[type='reset'].shaped, input[type='submit'].shaped {
+    color: white;
+    fill: white;
+    background-color: #50065A; }
+
 .card {
   border-radius: 4px;
   box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
@@ -311,36 +332,8 @@ template {
   padding: 10px;
   background-color: white; }
   .card .card-header {
-    margin: 0; }
-
-/* Buttons (https://material.io/develop/web/components/buttons/) */
-button, [type='button'], [type='reset'], [type='submit'] {
-  border: 0;
-  padding-left: 16px;
-  padding-right: 16px;
-  height: 36px;
-  border-radius: 4px; }
-  button.text, [type='button'].text, [type='reset'].text, [type='submit'].text {
-    color: #50065A;
-    fill: #50065A; }
-  button.raised, [type='button'].raised, [type='reset'].raised, [type='submit'].raised {
-    color: white;
-    fill: white;
-    background-color: #50065A;
-    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12); }
-  button.unelevated, [type='button'].unelevated, [type='reset'].unelevated, [type='submit'].unelevated {
-    color: white;
-    fill: white;
-    background-color: #50065A; }
-  button.outlined, [type='button'].outlined, [type='reset'].outlined, [type='submit'].outlined {
-    color: #50065A;
-    fill: #50065A;
-    border: 2px solid #50065A;
-    background-color: white; }
-  button.shaped, [type='button'].shaped, [type='reset'].shaped, [type='submit'].shaped {
-    color: white;
-    fill: white;
-    background-color: #50065A; }
+    margin: 0;
+    color: #50065A; }
 
 /******************************
  * Typography
@@ -523,16 +516,10 @@ p, a, li, label, blockquote {
  * Colors
  *****************************/
 html {
-  background-color: #f9e5ff; }
-
-.accentColor {
-  color: #DFA800; }
+  background-color: #F9E5FF; }
 
 label {
   color: #666666; }
-
-.card-header {
-  color: #50065A; }
 
 a {
   color: black; }
@@ -554,18 +541,6 @@ a {
 
 .right-margin {
   margin-right: 10px; }
-
-.color-accent-primary {
-  color: #50065A; }
-
-.color-accent-secondary {
-  color: #DFA800; }
-
-.background-color-accent-primary {
-  background-color: #50065A; }
-
-.background-color-accent-secondary {
-  background-color: #DFA800; }
 
 .text-left {
   text-align: left; }
@@ -699,6 +674,3 @@ footer {
   input {
     display: block;
     width: 100%; } }
-
-#storeCountdownContainer {
-  text-align: center; }

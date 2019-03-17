@@ -1,6 +1,8 @@
 @import 'normalize';
-@import 'material.scss';
+
+@import 'material/button';
+@import 'material/card';
+
 @import 'typography';
 @import 'layout';
 @import 'core';
-@import 'store';

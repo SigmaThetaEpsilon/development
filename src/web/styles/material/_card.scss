@@ -1,0 +1,25 @@
+//////////////////////////////////////////////////////////////////
+// Styles to create a standard Card
+// Based on Google's Material Design Components Web (https://github.com/material-components/material-components-web).
+// Specific component: Card (https://material.io/develop/web/components/cards/)
+//////////////////////////////////////////////////////////////////
+
+@import '../colors';
+@import 'shared';
+
+@mixin card-box {
+    @include round-corners();
+    @include box-shadow();
+}
+
+.card {
+    @include card-box();
+    margin: 8px 0;
+    padding: 10px;
+    background-color: white;
+
+    .card-header {
+        margin: 0;
+        color: $accent-primary;
+    }
+}

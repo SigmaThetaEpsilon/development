@@ -1,32 +1,22 @@
+//////////////////////////////////////////////////////////////////
+// Core styles to use in several places
+//////////////////////////////////////////////////////////////////
+
+@import 'colors';
+
 /*****************************
  * Colors
  *****************************/
-// Specific element colors
-$backgroundColor: #f9e5ff;
-$labelColor: #666666;
-
-// Official colors of Sigma Theta Epsilon.
-$purple: #50065A;
-$gold: #DFA800;
-
 html {
-    background-color: $backgroundColor;
-}
-
-.accentColor {
-    color: $gold;
+    background-color: $background-color;
 }
 
 label {
-    color: $labelColor;
-}
-
-.card-header {
-    color: $purple;
+    color: $text-color-label;
 }
 
 a {
-    color: black;
+    color: $text-color-primary;
 }
 
 /************************
@@ -52,22 +42,6 @@ $margin-amount: 10px;
 
 .right-margin {
     margin-right: $margin-amount;
-}
-
-.color-accent-primary {
-    color: $purple;
-}
-
-.color-accent-secondary {
-    color: $gold;
-}
-
-.background-color-accent-primary {
-    background-color: $purple;
-}
-
-.background-color-accent-secondary {
-    background-color: $gold;
 }
 
 .text-left {
@@ -107,7 +81,7 @@ $margin-amount: 10px;
 $header-break: 840px;
 
 header {
-    background-color: $purple;
+    background-color: $accent-primary;
     color: white;
     padding-bottom: 4px;
 
@@ -153,13 +127,13 @@ header {
  * Nav-bar styles
  *****************************/
 nav {
-    background-color: $purple;
+    background-color: $accent-primary;
 
     a {
         color: #AAAAAA;
         display: inline-block;
         padding: 0 16px;
-        border-bottom: 2px solid $purple;
+        border-bottom: 2px solid $accent-primary;
         min-height: 48px;
         text-decoration: none;
 
@@ -194,7 +168,7 @@ body {
 footer {
     flex-shrink: 0;
     text-align: center;
-    background-color: $purple;
+    background-color: $accent-primary;
     color: white;
 
     a {

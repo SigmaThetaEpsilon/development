@@ -29,7 +29,6 @@ class LoginView implements IView, IAccountInfoView {
      */
     public function getMainContent(): string {
         // TODO - error if failed to login
-        // TODO - register link
 
         $html = <<<HTML
 <section class="card cell--span-6 cell-center">
@@ -51,6 +50,11 @@ class LoginView implements IView, IAccountInfoView {
             <a href="/Accounts/ForgotPassword" title="Start the process of resetting your password.">Forgot Password</a>
         </div>
     </form>
+</section>
+<section class="card cell--span-4 cell-center">
+    <div class="text-center">
+        <p>Don't have an account yet? <a href='/Accounts/Register'>Click here</a> to register.</p>
+    </div>
 </section>
 HTML;
 

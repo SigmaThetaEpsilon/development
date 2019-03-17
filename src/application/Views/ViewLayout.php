@@ -111,6 +111,8 @@ class ViewLayout {
         <nav>$navbar</nav>
 
         <main class="grid">
+            $mainContent
+
             <noscript>
                 <section class="cell--span-8 cell-center">
                     <h3 class="card-header">No JavaScript</h3>
@@ -118,8 +120,6 @@ class ViewLayout {
                     <p>More information about how and why to enable JavaScript can be found here: <a href="https://www.enable-javascript.com/" target="_blank" title="How to enable JavaScript">https://www.enable-javascript.com/</a></p>
                 </section>
             </noscript>
-
-            $mainContent
         </main>
     </div>
 
