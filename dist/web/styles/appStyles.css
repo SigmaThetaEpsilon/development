@@ -302,6 +302,7 @@ button, input[type='button'], input[type='reset'], input[type='submit'] {
   padding-left: 16px;
   padding-right: 16px;
   height: 36px;
+  cursor: pointer;
   border-radius: 4px; }
   button.text, input[type='button'].text, input[type='reset'].text, input[type='submit'].text {
     color: #50065A;
@@ -613,6 +614,8 @@ nav {
       color: white; }
     nav a:hover {
       color: white; }
+  nav .navbar-right {
+    float: right; }
 
 /*****************************
  * Sticky footer styles
@@ -662,15 +665,15 @@ footer {
     margin-bottom: 0; }
   .field label {
     display: block; }
-  .field input {
+  .field input.value {
     width: 300px; }
-    .field input.full-width {
+    .field input.value.full-width {
       display: block;
       width: 100%; }
   .field .value-readonly {
     margin: 0; }
 
 @media (max-width: 1000px) {
-  input {
+  input.value {
     display: block;
     width: 100%; } }

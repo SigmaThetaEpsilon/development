@@ -28,7 +28,9 @@ class LoginView implements IView, IAccountInfoView {
      * main HTML content
      */
     public function getMainContent(): string {
+        // TODO - If already logged in, should display error
         // TODO - error if failed to login
+        // TODO - JavaScript to help with validation
 
         $html = <<<HTML
 <section class="card cell--span-6 cell-center">
@@ -36,12 +38,12 @@ class LoginView implements IView, IAccountInfoView {
     <form action="/Accounts/Login">
         <div class="field">
             <label for="Username">Username</label>
-            <input type="text" name="Username" id="Username" />
+            <input type="text" name="Username" id="Username" class="value" />
         </div>
 
         <div class="field">
             <label for="Password">Password</label>
-            <input type="password" name="Password" id="Password" />
+            <input type="password" name="Password" id="Password" class="value" />
         </div>
 
         <input type="submit" value="Login" class="raised" title="Submit information to login." />

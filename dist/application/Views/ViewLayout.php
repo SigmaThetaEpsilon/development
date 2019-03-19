@@ -18,7 +18,7 @@ class ViewLayout {
             if (strlen($pageTitle) == 0) { throw new InvalidArgumentException('Page title is invalid.'); }
             if (strlen($mainContent) == 0) { throw new InvalidArgumentException('Main content is invalid.'); }
 
-            $navbarContents = ViewLayout::buildNavbar($pageUri);
+            $navbarContents = ViewLayout::buildNavbarLeft($pageUri) . ViewLayout::buildNavbarRight();
 
             $html = ViewLayout::layoutHTML();
             $html = str_replace(ViewLayout::$tokenTitle, $pageTitle, $html);
@@ -38,12 +38,12 @@ class ViewLayout {
      * @param $pageUri - identifier for the page you are rendering to control the active link in the navbar.
      * @return string HTML string
      */
-    private static function buildNavbar($pageUri): string {
+    private static function buildNavbarLeft($pageUri): string {
         $navbarLinks = [
             '/' => 'Home',
-            '/chapters' => 'Chapters',
-            '/store' => 'Store',
-            '/philoi' => 'The Philoi'
+            '/Chapters' => 'Chapters',
+            '/Store' => 'Store',
+            '/Philoi' => 'The Philoi'
         ];
 
         $navbarHtml = '';
@@ -57,6 +57,20 @@ class ViewLayout {
         }
 
         return $navbarHtml;
+    }
+
+    /**
+     * Helper in charge of building the right-side of the navigation bar.
+     * @return string HTML string
+     */
+    private static function buildNavbarRight(): string {
+        $linkHtml = "<a href='/Accounts/Login'>Login</a>"; // TODO - look at session to see if we need login/logout link
+        
+        $html = "<div class='navbar-right'>";
+        $html .= $linkHtml;
+        $html .= "</div>";
+
+        return $html;
     }
 
     /**

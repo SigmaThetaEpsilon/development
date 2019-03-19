@@ -146,6 +146,10 @@ nav {
             color: white;   
         }
     }
+
+    .navbar-right {
+        float: right;
+    }
 }
 
 /*****************************
@@ -219,7 +223,7 @@ footer {
         display: block;
     }
 
-    input {
+    input.value {
         width: 300px;
 
         &.full-width {
@@ -234,7 +238,7 @@ footer {
 }
 
 @media (max-width: 1000px) {
-    input {
+    input.value {
         display: block;
         width: 100%;
     }

@@ -36,12 +36,12 @@ class LoginView implements IView, IAccountInfoView {
     <form action="/Accounts/Login">
         <div class="field">
             <label for="Username">Username</label>
-            <input type="text" name="Username" id="Username" />
+            <input type="text" name="Username" id="Username" class="value" />
         </div>
 
         <div class="field">
             <label for="Password">Password</label>
-            <input type="password" name="Password" id="Password" />
+            <input type="password" name="Password" id="Password" class="value" />
         </div>
 
         <input type="submit" value="Login" class="raised" title="Submit information to login." />

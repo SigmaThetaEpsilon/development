@@ -17,6 +17,7 @@ button, input[type='button'], input[type='reset'], input[type='submit'] {
     padding-left: 16px;
     padding-right: 16px;
     height: 36px;
+    cursor: pointer;
     @include round-corners();
 
     // TODO - hover, pressed states

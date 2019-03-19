@@ -18,28 +18,54 @@ class IndexView implements IView {
     public function getMainContent(): string {
         $html = <<<HTML
 <section class="card cell--span-8 cell-center">
-    <h3 class="card-header">Conclave 2019</h3>
-    <p>Conclave 2019 will be March 22-24, 2019 at Ohio Northern University. Registration is live through <a href="https://www.eventbrite.com/d/oh--ada/spirituality--events/sigma-theta-epsilon/?end_date=2019-03-24&fbclid=IwAR10M6AWQnYrTrXLIIhOL42Ur6U13s-4GCBl7_-zgNKOw3lMNjMUC-Mx-0w&page=1&start_date=2019-03-22" target="_blank">Eventbrite</a>. Registration options:</p>
+    <h3 class="card-header">March Madness 2019</h3>
+    
+    <p>
+        The National Fraternity of Sigma Theta Epsilon is offering up an NCAA March Madness Bracket Challenge!
+        This year, each entry is $5/bracket submitted, with unlimited brackets being allowed.
+    </p>
+
+    <p>The money raised from the tournament challenge shall go as follows:</p>
     <ul>
-        <li>Ticket for Conclave</li>
-        <li>Ticket for Conclave and room at the Inn at Ohio Northern University</li>
+        <li>1/3 to the tournament champion.</li>
+        <li>1/3 to the the fraternity for future programs and operations.</li>
+        <li>1/3 to the charity of the WINNERS choice.</li>
     </ul>
 
     <p>
-        If you will not be able to attend Conclave this year but still want to contribute to the event, we are accepting donations through PayPal to help others attend who wouldn't be able to otherwise. 
-        You can donate any amount using a PayPal account or a debit/credit card. 
-        You can also add notes if you want to specify how you want your donation to be used.
+        You read that correctly. 
+        The winner not only takes a cut, but can help the National Board decide where to send a portion of the money raised in the event.
+        Want to show us which organization you want to support right away if you take home the title? 
+        Use that as your bracket entry name and we will confirm after the event who you want that money to go to.
     </p>
+
+    <p>
+        Use <a href="http://fantasy.espn.com/tournament-challenge-bracket/2019/en/group?redirect=tcmen%3A%2F%2Fx-callback-url%2FshowGroup%3FgroupID%3D3224759&ex_cid=tcmen2019_email&groupID=3224759&groupp=UGhpbG9pIQ%3D%3D&inviteuser=ezI5NjJFRjVBLTFCMDMtNDQ2Ny05NjUzLTlFOEIxOTVGNjMzRH0%3D&invitesource=email" target="_blank">this link</a> to join.
+        Password is: <pre>STE1925!</pre>
+    </p>
+
+    <p>
+        Use this button to send $5 to the National Fraternity.
+        Be sure to include your name in the notes.
+    </p>
+
     <div class="text-center">
         <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
             <input type="hidden" name="cmd" value="_donations" />
             <input type="hidden" name="business" value="XZJV7A2FBC4QE" />
-            <input type="hidden" name="item_name" value="Conclave 2019 Participant Financial Gift" />
+            <input type="hidden" name="item_name" value="March Madness 2019 Financial Gift" />
             <input type="hidden" name="currency_code" value="USD" />
             <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
             <img alt="" border="0" src="https://www.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1" />
         </form>
     </div>
+
+    <p>
+        Entries, including payments, must be submitted by March 21 by 12:00 PM EST. 
+        All entries without a payment will be marked as disqualified.
+
+        Thanks for participating. Good luck!
+    </p>    
 </section>
 
 <div class="media-container cell--span-12">
