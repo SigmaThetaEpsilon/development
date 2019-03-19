@@ -29,7 +29,7 @@ class IndexView implements IView {
     <ul>
         <li>1/3 to the tournament champion.</li>
         <li>1/3 to the the fraternity for future programs and operations.</li>
-        <li>1/3 to the charity of the WINNERS choice.</li>
+        <li>1/3 to the charity of the winner's choice.</li>
     </ul>
 
     <p>
