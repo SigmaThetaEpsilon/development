@@ -28,7 +28,9 @@ class LoginView implements IView, IAccountInfoView {
      * main HTML content
      */
     public function getMainContent(): string {
+        // TODO - If already logged in, should display error
         // TODO - error if failed to login
+        // TODO - JavaScript to help with validation
 
         $html = <<<HTML
 <section class="card cell--span-6 cell-center">

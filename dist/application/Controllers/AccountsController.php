@@ -48,7 +48,7 @@ class AccountsController implements IController {
             return $this->tryProcessGetRequest($requestUri);
         }
         else if (HttpMethods::IsPost($requestMethod)) {
-            return $this->tryProcessPostRequest($requestUri);
+            return $this->tryProcessPostRequest($requestUri, $postValues);
         }
         else {
             return false;
@@ -98,8 +98,35 @@ class AccountsController implements IController {
         }
     }
 
-    private function tryProcessPostRequest($requestUri): bool {
+    private function tryProcessPostRequest($requestUri, $postValues): bool {
+        $uriPieces = explode('/', $requestUri);
+        if (count($uriPieces) > 2) {
+            $route = $uriPieces[2];
+            if (strcasecmp($route, 'Login') == 0) {
+                return tryHandleLogin($postValues);
+            }
+            else {
+                return false;
+            }
+        }
+        else {
+            return false;
+        }
+    }
 
+    private function tryHandleLogin($postValues) {
+        // TODO - if already logged in, reject new values.
+
+        $username = $postValues['Username'];
+        $password = $postValues['Password'];
+
+        if (!isset($username) || !isset($password)) {
+
+        }
+
+        
+
+        
     }
 }
 
