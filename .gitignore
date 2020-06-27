@@ -1,2 +1,4 @@
-/server/website/chapters/__pycache__
 __pycache__
+node_modules
+/client/dist/dev/webpack.js
+/client/dist/prod/webpack.js
