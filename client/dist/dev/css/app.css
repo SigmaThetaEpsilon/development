@@ -332,7 +332,7 @@ template {
 
 /*!
 //
-// Copyright 2017 Google Inc.
+// Copyright Google Inc.
 //
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -374,9 +374,10 @@ template {
  * Material Design Component - Top App Bar
  * https://material.io/components/app-bars-top/web
  *****************************/
+/*! Typography */
 /*****************************
  * Typography
- * https://material.io/components/cards/web
+ * Loosly based on Material typography (https://material.io/design/typography/the-type-system.html)
  *****************************/
 @font-face {
   font-family: "Roboto";
