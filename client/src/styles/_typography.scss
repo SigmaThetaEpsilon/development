@@ -5,22 +5,28 @@
  * Loosly based on Material typography (https://material.io/design/typography/the-type-system.html)
  *****************************/
 
-$font-path: '/fonts/'; // Assume this folder exists at root.
+$fonts-list: (
+    ('Roboto-Black.ttf', normal, 900),
+    ('Roboto-BlackItalic.ttf', italic, 900),
+    ('Roboto-Bold.ttf', normal, 700),
+    ('Roboto-BoldItalic.ttf', italic, 700),
+    ('Roboto-Italic.ttf', italic, 400),
+    ('Roboto-Light.ttf', normal, 300),
+    ('Roboto-LightItalic.ttf', italic, 300),
+    ('Roboto-Medium.ttf', normal, 500),
+    ('Roboto-MediumItalic.ttf', italic, 500),
+    ('Roboto-Regular.ttf', normal, 400),
+    ('Roboto-Thin.ttf', normal, 100),
+    ('Roboto-ThinItalic.ttf', italic, 100)
+);
 
-@font-face {
-    font-family: 'Roboto';
-    src: url('#{$font-path}Roboto-Black.ttf') format('truetype'),
-         url('#{$font-path}Roboto-BlackItalic.ttf') format('truetype'),
-         url('#{$font-path}Roboto-Bold.ttf') format('truetype'),
-         url('#{$font-path}Roboto-BoldItalic.ttf') format('truetype'),
-         url('#{$font-path}Roboto-Italic.ttf') format('truetype'),
-         url('#{$font-path}Roboto-Light.ttf') format('truetype'),
-         url('#{$font-path}Roboto-LightItalic.ttf') format('truetype'),
-         url('#{$font-path}Roboto-Medium.ttf') format('truetype'),
-         url('#{$font-path}Roboto-MediumItalic.ttf') format('truetype'),
-         url('#{$font-path}Roboto-Regular.ttf') format('truetype'),
-         url('#{$font-path}Roboto-Thin.ttf') format('truetype'),
-         url('#{$font-path}Roboto-ThinItalic.ttf') format('truetype');
+@each $file, $style, $weight in $fonts-list {
+    @font-face {
+        font-family: 'Roboto';
+        font-style: $style;
+        font-weight: $weight;
+        src: url('/fonts/#{file}') format('truetype');
+    }
 }
 
 html {
