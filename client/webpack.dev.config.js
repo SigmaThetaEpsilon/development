@@ -13,10 +13,24 @@ module.exports = {
     module: {
         rules: [
             {
+                test: /\.ttf$/,
+                exclude: /node_modules/,
+                loader: 'file-loader',
+                options: {
+                    name: 'fonts/[name].[ext]'
+                }
+            },
+            {
                 test: /\.scss$/,
+                exclude: /node_modules/,
                 use: [ 
                     MiniCssExtractPlugin.loader,
-                    'css-loader', 
+                    { 
+                        loader: 'css-loader',
+                        options: {
+                            url: false
+                        }
+                    }, 
                     'sass-loader' 
                 ]
             }
@@ -24,7 +38,6 @@ module.exports = {
     },
     plugins: [
         new CleanWebpackPlugin(),
-        new MiniCssExtractPlugin({ filename: 'app.css' })
+        new MiniCssExtractPlugin({ filename: 'css/app.css' })
     ]
-
 };

@@ -1,0 +1,59 @@
+/*****************************
+ * Typography
+ * https://material.io/components/cards/web
+ *****************************/
+
+$font-path: '/fonts/'; // Assume this folder exists at root.
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('#{$font-path}Roboto-Black.ttf') format('truetype'),
+         url('#{$font-path}Roboto-BlackItalic.ttf') format('truetype'),
+         url('#{$font-path}Roboto-Bold.ttf') format('truetype'),
+         url('#{$font-path}Roboto-BoldItalic.ttf') format('truetype'),
+         url('#{$font-path}Roboto-Italic.ttf') format('truetype'),
+         url('#{$font-path}Roboto-Light.ttf') format('truetype'),
+         url('#{$font-path}Roboto-LightItalic.ttf') format('truetype'),
+         url('#{$font-path}Roboto-Medium.ttf') format('truetype'),
+         url('#{$font-path}Roboto-MediumItalic.ttf') format('truetype'),
+         url('#{$font-path}Roboto-Regular.ttf') format('truetype'),
+         url('#{$font-path}Roboto-Thin.ttf') format('truetype'),
+         url('#{$font-path}Roboto-ThinItalic.ttf') format('truetype');
+}
+
+html {
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    line-height: 1.5; 
+}
+
+h1 {
+    font-size: 6rem; 
+}
+
+h2 {
+    font-size: 3.75rem; 
+}
+
+h3 {
+    font-size: 3rem; 
+}
+
+h4 {
+    font-size: 2.125rem; 
+}
+
+h5 {
+    font-size: 1.5rem; 
+}
+
+h6 {
+    font-size: 1.25rem; 
+}
+
+p, a, li, label, blockquote {
+    font-size: 1.5rem; 
+}
